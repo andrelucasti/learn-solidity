@@ -1,30 +1,24 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0 <0.9.0;
 
-contract Base {
+contract Vehicle {
 
-    uint data; 
-
-    constructor(uint _data){
-        data = _data;
+    uint maxVelocity;
+    constructor (uint _maxVelocity){
+        maxVelocity = _maxVelocity;
     }
 
-    function getData() public view virtual returns (uint){
-        return data;
-    }
-}
-
-contract Derived is Base (5) {
-
-    function getData() public view override returns (uint){
-        return data;
+    function getVelocity() public view returns(uint){
+        return maxVelocity;
     }
 }
 
-contract CustomDerived is Base{
-    constructor(uint _customData) Base(_customData) {}
 
-     function getData() public view override returns (uint){
-        return data;
-    }
+
+contract Motocycle is Vehicle(5){
+    
+}
+
+contract Car is Vehicle(10){
+    
 }
